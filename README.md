@@ -2,4 +2,4 @@
 Password Generator
 
 
-![Password Generator] (./password-generator.jpg "Password Generator")
+![Password Generator] (password-generator.jpg "Password Generator")
