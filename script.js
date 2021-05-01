@@ -3,8 +3,8 @@ var valid2;
 var valid3;
 var valid4;
 var low;
-var up;
-var num;
+var uppercase;
+var number;
 var symbol;
 var uppers = "ABCDEFHGIJKLMNOPQRSTUVWXYZ";
 var lowers = "abcdefghijklmnopqrstuvwxyz";
@@ -17,11 +17,11 @@ function inputCriteria() {
     
 var charNumber = parseInt(
             prompt("Please choose password between 8 and 128 characters."));
-
+//how many characters
     if (charNumber >= 8 && charNumber <= 128) {
     console.log(charNumber + " is accepted.");
 
-
+//if not enough characters specified
     } else {
          alert("Unacceptable length. Please choose length between 8 and 128 characters");
          return inputCriteria();
@@ -29,9 +29,11 @@ var charNumber = parseInt(
     
 ;
 
+    
+
     var passStore = [];
 
-    //Asks if user would like to use a variety of characters through a series of confirms (Both variable and validator stored as boolean)
+   //User prompts for character type stored as boolean values
     function charSelect() {
         var lowersVal = function () {
             low = confirm("Would you like to use lowercase characters?");
@@ -42,7 +44,7 @@ var charNumber = parseInt(
             lowersVal();
         }
         var uppersVal = function () {
-            up = confirm("Would you like to use uppercase characters?");
+            uppercase = confirm("Would you like to use uppercase characters?");
             
         }
         uppersVal();
@@ -50,7 +52,7 @@ var charNumber = parseInt(
             uppersVal();
         }
         var numbVal = function () {
-            num = confirm("Would you like to use numbers?");
+            number = confirm("Would you like to use numbers?");
             
         }
         numbVal();
@@ -68,7 +70,7 @@ var charNumber = parseInt(
     }
     charSelect();
     //Validate that at least one character type was chosen
-    if (low === true || up === true || num === true || special === true) {
+    if (low === true || uppercase === true || number === true || special === true) {
         alert("Let's get you your password!");
     } else {
         alert("Please select at least one option for password criteria.");
@@ -77,14 +79,14 @@ var charNumber = parseInt(
     if (low === true) {
         passPossible = passPossible + lowers;
     }
-    if (up === true) {
+    if (uppercase === true) {
         passPossible = passPossible + uppers;
     }
-    if (num === true) {
+    if (number === true) {
         passPossible = passPossible + numb;
     }
     if (symbol === true) {
-        passPossible = passPossible + sym;
+        passPossible = passPossible + special;
     }
     for (i = 0; i < charNumber; i++) {
         var randomIndex = Math.floor(Math.random() * passPossible.length);
